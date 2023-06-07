@@ -1,0 +1,952 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Swagger Joyoful Restful API",
+    "description": "Swagger Joyoful Restful API",
+    "contact": {
+      "name": "Joyoful",
+      "email": "****@joyofulcloud.com"
+    },
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://4b44875u87.imdo.co:80",
+      "description": "Inferred Url"
+    }
+  ],
+  "tags": [
+    {
+      "name": "用户",
+      "description": "Manage User Controller"
+    },
+    {
+      "name": "角色",
+      "description": "Role Controller"
+    }
+  ],
+  "paths": {
+    "/manage/user/add": {
+      "post": {
+        "tags": [
+          "用户"
+        ],
+        "summary": "添加",
+        "operationId": "ManageUserController.create",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserCreateDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/R«boolean»"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/manage/user/delete/{id}": {
+      "delete": {
+        "tags": [
+          "用户"
+        ],
+        "summary": "删除",
+        "operationId": "ManageUserController.delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/R«boolean»"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/manage/user/detail/user": {
+      "get": {
+        "tags": [
+          "用户"
+        ],
+        "summary": "当前登录用户详情",
+        "operationId": "ManageUserController.loginDetail",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/R«UserLoginDetailVO»"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/manage/user/detail/{id}": {
+      "get": {
+        "tags": [
+          "用户"
+        ],
+        "summary": "详情",
+        "operationId": "ManageUserController.detail",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/R«UserDetailVO»"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/manage/user/list": {
+      "post": {
+        "tags": [
+          "用户"
+        ],
+        "summary": "分页",
+        "operationId": "ManageUserController.page",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/用户分页搜索Param"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/R«PageResult«UserListVO»»"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/manage/user/login": {
+      "post": {
+        "tags": [
+          "用户"
+        ],
+        "summary": "登录",
+        "operationId": "ManageUserController.login",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserLoginDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/R«string»"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/manage/user/logout": {
+      "post": {
+        "tags": [
+          "用户"
+        ],
+        "summary": "登出",
+        "operationId": "ManageUserController.logout",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/R«boolean»"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/manage/user/reset/{id}": {
+      "get": {
+        "tags": [
+          "用户"
+        ],
+        "summary": "重置密码",
+        "operationId": "ManageUserController.resetPwd",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/R«boolean»"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/manage/user/update": {
+      "put": {
+        "tags": [
+          "用户"
+        ],
+        "summary": "更新",
+        "operationId": "ManageUserController.update",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserUpdateDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/R«boolean»"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/manage/user/update/pwd": {
+      "put": {
+        "tags": [
+          "用户"
+        ],
+        "summary": "修改密码",
+        "operationId": "ManageUserController.updatePwd",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserUpdatePwdDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/R«boolean»"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "MenuVO": {
+        "title": "MenuVO",
+        "type": "object",
+        "properties": {
+          "icon": {
+            "type": "string",
+            "description": "图标"
+          },
+          "name": {
+            "type": "string",
+            "description": "菜单名称"
+          },
+          "path": {
+            "type": "string",
+            "description": "路径"
+          }
+        }
+      },
+      "RoleVO": {
+        "title": "RoleVO",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "主键",
+            "format": "int64"
+          },
+          "roleName": {
+            "type": "string",
+            "description": "角色名称"
+          }
+        }
+      },
+      "R«List«RoleVO»»": {
+        "title": "R«List«RoleVO»»",
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RoleVO"
+            }
+          },
+          "exception": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "requestId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "success": {
+            "type": "boolean"
+          },
+          "timestamp": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "R«List«string»»": {
+        "title": "R«List«string»»",
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "exception": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "requestId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "success": {
+            "type": "boolean"
+          },
+          "timestamp": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "R«PageResult«UserListVO»»": {
+        "title": "R«PageResult«UserListVO»»",
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "$ref": "#/components/schemas/PageResult«UserListVO»"
+          },
+          "exception": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "requestId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "success": {
+            "type": "boolean"
+          },
+          "timestamp": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "R«UserDetailVO»": {
+        "title": "R«UserDetailVO»",
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "$ref": "#/components/schemas/UserDetailVO"
+          },
+          "exception": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "requestId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "success": {
+            "type": "boolean"
+          },
+          "timestamp": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "R«UserLoginDetailVO»": {
+        "title": "R«UserLoginDetailVO»",
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "$ref": "#/components/schemas/UserLoginDetailVO"
+          },
+          "exception": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "requestId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "success": {
+            "type": "boolean"
+          },
+          "timestamp": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "R«boolean»": {
+        "title": "R«boolean»",
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "boolean"
+          },
+          "exception": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "requestId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "success": {
+            "type": "boolean"
+          },
+          "timestamp": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "R«string»": {
+        "title": "R«string»",
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "data": {
+            "type": "string"
+          },
+          "exception": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "requestId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "success": {
+            "type": "boolean"
+          },
+          "timestamp": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "UserCreateDTO": {
+        "title": "UserCreateDTO",
+        "required": [
+          "account",
+          "name",
+          "roleIdList"
+        ],
+        "type": "object",
+        "properties": {
+          "account": {
+            "maxLength": 30,
+            "minLength": 0,
+            "type": "string",
+            "description": "账号"
+          },
+          "email": {
+            "pattern": "^$|[\\w!#$%&'*+/=?^_`{|}~-]+(?:\\.[\\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\\w](?:[\\w-]*[\\w])?\\.)+[\\w](?:[\\w-]*[\\w])?",
+            "type": "string",
+            "description": "邮箱"
+          },
+          "mobile": {
+            "pattern": "^$|^1\\d{10}$",
+            "type": "string",
+            "description": "手机号"
+          },
+          "name": {
+            "maxLength": 10,
+            "minLength": 0,
+            "type": "string",
+            "description": "名称"
+          },
+          "roleIdList": {
+            "type": "array",
+            "description": "角色",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        }
+      },
+      "UserDetailVO": {
+        "title": "UserDetailVO",
+        "type": "object",
+        "properties": {
+          "account": {
+            "type": "string",
+            "description": "账号"
+          },
+          "createDate": {
+            "type": "string",
+            "description": "创建时间",
+            "format": "date-time"
+          },
+          "email": {
+            "type": "string",
+            "description": "邮箱"
+          },
+          "id": {
+            "type": "string",
+            "description": "主键"
+          },
+          "mobile": {
+            "type": "string",
+            "description": "手机号"
+          },
+          "name": {
+            "type": "string",
+            "description": "名称"
+          },
+          "roleIdList": {
+            "type": "array",
+            "description": "角色",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        }
+      },
+      "UserListVO": {
+        "title": "UserListVO",
+        "type": "object",
+        "properties": {
+          "account": {
+            "type": "string",
+            "description": "账号"
+          },
+          "createDate": {
+            "type": "string",
+            "description": "创建时间",
+            "format": "date-time"
+          },
+          "email": {
+            "type": "string",
+            "description": "邮箱"
+          },
+          "id": {
+            "type": "string",
+            "description": "主键"
+          },
+          "mobile": {
+            "type": "string",
+            "description": "手机号"
+          },
+          "name": {
+            "type": "string",
+            "description": "名称"
+          }
+        }
+      },
+      "UserLoginDTO": {
+        "title": "UserLoginDTO",
+        "required": [
+          "account",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "account": {
+            "type": "string",
+            "description": "账号"
+          },
+          "password": {
+            "type": "string",
+            "description": "密码"
+          }
+        }
+      },
+      "UserLoginDetailVO": {
+        "title": "UserLoginDetailVO",
+        "type": "object",
+        "properties": {
+          "account": {
+            "type": "string",
+            "description": "账号"
+          },
+          "email": {
+            "type": "string",
+            "description": "邮箱"
+          },
+          "id": {
+            "type": "string",
+            "description": "主键"
+          },
+          "menuList": {
+            "type": "array",
+            "description": "功能卡片列表",
+            "items": {
+              "$ref": "#/components/schemas/MenuVO"
+            }
+          },
+          "mobile": {
+            "type": "string",
+            "description": "手机号"
+          },
+          "name": {
+            "type": "string",
+            "description": "名称"
+          }
+        }
+      },
+      "UserUpdateDTO": {
+        "title": "UserUpdateDTO",
+        "required": [
+          "id",
+          "name",
+          "roleIdList"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "pattern": "^$|[\\w!#$%&'*+/=?^_`{|}~-]+(?:\\.[\\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\\w](?:[\\w-]*[\\w])?\\.)+[\\w](?:[\\w-]*[\\w])?",
+            "type": "string",
+            "description": "邮箱"
+          },
+          "id": {
+            "type": "string",
+            "description": "主键"
+          },
+          "mobile": {
+            "pattern": "^$|^1\\d{10}$",
+            "type": "string",
+            "description": "手机号"
+          },
+          "name": {
+            "maxLength": 10,
+            "minLength": 0,
+            "type": "string",
+            "description": "名称"
+          },
+          "roleIdList": {
+            "type": "array",
+            "description": "角色",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        }
+      },
+      "UserUpdatePwdDTO": {
+        "title": "UserUpdatePwdDTO",
+        "required": [
+          "newPassword",
+          "oldPassword"
+        ],
+        "type": "object",
+        "properties": {
+          "newPassword": {
+            "type": "string",
+            "description": "新密码"
+          },
+          "oldPassword": {
+            "type": "string",
+            "description": "旧密码"
+          }
+        }
+      },
+      "分页请求体": {
+        "title": "分页请求体",
+        "type": "object",
+        "properties": {
+          "pageNum": {
+            "type": "integer",
+            "description": "页码",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "每页显示数量",
+            "format": "int32"
+          }
+        }
+      },
+      "用户分页搜索Param": {
+        "title": "用户分页搜索Param",
+        "type": "object",
+        "properties": {
+          "account": {
+            "type": "string",
+            "description": "用户名：account"
+          },
+          "email": {
+            "type": "string",
+            "description": "邮箱"
+          },
+          "mobile": {
+            "type": "string",
+            "description": "手机号"
+          },
+          "name": {
+            "type": "string",
+            "description": "名称"
+          },
+          "pageNum": {
+            "type": "integer",
+            "description": "页码",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "每页显示数量",
+            "format": "int32"
+          }
+        }
+      }
+    }
+  }
+}

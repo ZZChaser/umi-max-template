@@ -1,0 +1,43 @@
+{
+  "name": "max-template",
+  "private": true,
+  "author": "ZZChaser <chaserjustdoit@gmail.com>",
+  "scripts": {
+    "start": "cross-env MOCK=none max dev",
+    "start:test": "cross-env MOCK=none UMI_ENV=test max dev",
+    "start:mock": "cross-env max dev",
+    "build": "max build",
+    "build:sit": "cross-env UMI_ENV=sit max build",
+    "dev": "max dev",
+    "format": "prettier --cache --write .",
+    "prepare": "husky install",
+    "postinstall": "max setup",
+    "setup": "max setup",
+    "openapi": "max openapi",
+    "g:page": "max g page --dir"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.0.1",
+    "@ant-design/pro-components": "^2.5.3",
+    "@umijs/max": "^4.0.69",
+    "@umijs/max-plugin-openapi": "^2.0.3",
+    "antd": "^5.4.0",
+    "classnames": "^2.3.2",
+    "crypto-js": "^4.1.1",
+    "js-cookie": "^3.0.5",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.195",
+    "@types/react": "^18.0.33",
+    "@types/react-dom": "^18.0.11",
+    "cross-env": "^7.0.3",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
+    "prettier": "^2.8.7",
+    "prettier-plugin-organize-imports": "^3.2.2",
+    "prettier-plugin-packagejson": "^2.4.3",
+    "swagger-ui-dist": "^4.18.3",
+    "typescript": "^5.0.3"
+  }
+}

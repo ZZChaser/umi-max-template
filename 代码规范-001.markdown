@@ -1,0 +1,139 @@
+# 代码规范
+让营地比你来时更干净
+
+## 命名
+### 格式
+#### 项目、目录
+- 小写，单词间中横线分隔
+
+  ```typescript
+  // bad
+  iotOtaFrontend
+
+  // better
+  iot-ota-frontend
+  ```
+  ```typescript
+  // bad
+  deviceManagement
+
+  // better
+  device-management
+
+  ```
+#### 组件（React）
+- 帕斯卡命名法（Pascal Case）：每个单词首字母大写
+
+  ```typescript
+  // bad
+  headerSearch
+
+  // better
+  HeaderSearch
+  ```
+#### 函数名
+- 驼峰命名法（Camel Case）：首字母小写
+- 动词或动词短语
+
+  ```typescript
+  // bad
+  function toolbar() {
+    // ...
+    return {
+      // ...
+    }
+  }
+
+  // better
+  function getToolbar() {
+    // ...
+    return {
+      // ...
+    }
+  }
+  ```
+#### 参数名、成员变量、局部变量
+- 驼峰命名法（Camel Case）：首字母小写
+
+  ```typescript
+  // bad
+  let member-count;
+
+  // better
+  let memberCount;
+  ```
+#### 常量
+- 全部大写，单词间用划线分隔
+
+  ```typescript
+  // bad
+  const alarmTypeOptions = [
+    // ...
+  ];
+
+  // better
+  const ALARM_TYPE_OPTIONS = [
+    // ...
+  ];
+  ```
+### 约定
+- 名副其实
+
+  ```typescript
+  // bad
+  let d; // 消逝的时间，以日计
+
+  // better
+  let elapsedTimeInDays;
+  ```
+- 使用读得出来的名称
+  ```typescript
+
+  // bad
+  let genymdhms;
+
+  // better
+  let generationTimestamp;
+  ```
+- 每个概念对应一个词
+  ```typescript
+
+  // bad
+  let names;
+  let nameList;
+  let nameArr;
+
+  // better
+  let names;
+  ```
+- 添加有意义的语境
+  ```typescript
+
+  // bad
+  let genymdhms;
+
+  // better
+  let generationTimestamp;
+  ```
+
+## 函数
+
+- 小
+- 只做一件事
+- 参数尽量少，同一含义的参数可用 Object 合并
+- 避免标识参数
+- 无副作用
+- 使用异常代替返回错误码
+
+## 格式
+### 垂直
+- 垂直方向的间隔
+- 垂直方向的靠近
+### 横向
+- 横向字符数
+- 横向缩进
+- 横向方向的间隔
+
+## 错误处理
+- 抛出错误而非返回码
+- 添加特例模式
